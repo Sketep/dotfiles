@@ -1,0 +1,15 @@
+{
+    "java.project.sourcePaths": [
+        "src/main/java",
+        "src/test/java"
+    ],
+    "editor.snippetSuggestions": "none",
+    "editor.inlineSuggest.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "claudeCode.preferredLocation": "panel",
+    "chat.fontSize": 15,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "chat.disableAIFeatures": true
+}

@@ -1,0 +1,7 @@
+[user]
+	name = Sketep
+	email = peter.yermishkin@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
