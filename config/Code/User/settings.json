@@ -11,5 +11,8 @@
     "chat.fontSize": 15,
     "git.confirmSync": false,
     "git.autofetch": true,
-    "chat.disableAIFeatures": true
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "catppuccin.accentColor": "peach",
+    "catppuccin.extraBordersEnabled": true,
+    "workbench.iconTheme": "catppuccin-mocha"
 }
