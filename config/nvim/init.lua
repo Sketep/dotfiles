@@ -45,7 +45,7 @@ require("lazy").setup({
     end,
   },
 
-  -- Syntax highlighting
+
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -79,4 +79,26 @@ require("lazy").setup({
     config = true,
   },
 
+})
+
+
+-- Markdown and text file wrapping autocmd
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"markdown", "text"},
+    callback = function()
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.breakindent = true
+        vim.opt_local.spell = true          -- spell check for prose
+        vim.opt_local.textwidth = 0         -- no hard wrapping
+        vim.opt_local.colorcolumn = ""      -- hide the column guide
+
+        vim.keymap.set('n', 'j', function()
+            return vim.v.count > 0 and 'j' or 'gj'
+        end, {expr = true, buffer = true})
+
+        vim.keymap.set('n', 'k', function()
+            return vim.v.count > 0 and 'k' or 'gk'
+        end, {expr = true, buffer = true})
+    end
 })
