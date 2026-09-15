@@ -21,9 +21,6 @@ alias ll='eza -la --icons --git --time-style=relative --group-directories-first'
 alias lt='eza --tree --icons --level=2'
 alias tree='eza --tree --icons'
 
-# lazyvim alias
-alias lvim='NVIM_APPNAME=lazyvim nvim'
-
 # xdg-open + fzf file picker and opener function
 o() {
   local f
