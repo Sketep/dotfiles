@@ -21,6 +21,9 @@ alias ll='eza -la --icons --git --time-style=relative --group-directories-first'
 alias lt='eza --tree --icons --level=2'
 alias tree='eza --tree --icons'
 
+# lazyvim alias
+alias lvim='NVIM_APPNAME=lazyvim nvim'
+
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do
@@ -43,3 +46,4 @@ eval "$(starship init bash)"
 
 # Run atuin
 source /usr/libexec/atuin/atuin-init.bash
+export LIBVIRT_DEFAULT_URI=qemu:///system
