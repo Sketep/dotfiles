@@ -2,12 +2,12 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  . /etc/bashrc
 fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
@@ -24,20 +24,27 @@ alias tree='eza --tree --icons'
 # lazyvim alias
 alias lvim='NVIM_APPNAME=lazyvim nvim'
 
+# xdg-open + fzf file picker and opener function
+o() {
+  local f
+  f=$(fzf --height 40% --reverse --preview 'file {}' -1 -0 --query="$*") || return
+  [ -n "$f" ] && (xdg-open "$f" >/dev/null 2>&1 &)
+}
+
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-    for rc in ~/.bashrc.d/*; do
-        if [ -f "$rc" ]; then
-            . "$rc"
-        fi
-    done
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
 fi
 unset rc
 
 # Run fastfetch on startup
 fastfetch
 
-# Run zodixe 
+# Run zodixe
 eval "$(zoxide init bash)"
 
 # Run starship (must be before atuin to register preexec hooks first)
