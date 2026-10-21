@@ -43,7 +43,7 @@ fi
 unset rc
 
 # Run fastfetch on startup
-fastfetch
+# fastfetch
 
 # Run zodixe
 eval "$(zoxide init bash)"
