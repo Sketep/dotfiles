@@ -19,3 +19,9 @@ ln -sf "$DOTFILES/config/tmux/tmux.conf" ~/.config/tmux/tmux.conf
 [ -d ~/.config/tmux/plugins/vim-tmux-navigator ] || git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.config/tmux/plugins/vim-tmux-navigator
 [ -d ~/.config/tmux/plugins/tmux-resurrect ] || git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/.config/tmux/plugins/tmux-resurrect
 [ -d ~/.config/tmux/plugins/tmux-continuum ] || git clone https://github.com/tmux-plugins/tmux-continuum.git ~/.config/tmux/plugins/tmux-continuum
+# press: markdown → PDF (needs pandoc, typst via `cargo install --locked typst-cli`,
+# and fonts: ibm-plex-sans-fonts ibm-plex-serif-fonts ibm-plex-mono-fonts adobe-source-serif-pro-fonts)
+mkdir -p ~/.local/bin ~/.local/share ~/.claude/skills
+ln -sf "$DOTFILES/bin/press" ~/.local/bin/press
+ln -sfn "$DOTFILES/share/press" ~/.local/share/press
+ln -sfn "$DOTFILES/claude/skills/press" ~/.claude/skills/press
