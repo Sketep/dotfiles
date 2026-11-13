@@ -5,3 +5,5 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[includeIf "gitdir:~/Dev/Sysadmin/"]
+  path = ~/.gitconfig-sysadmin
