@@ -55,3 +55,4 @@ eval "$(starship init bash)"
 # Run atuin
 source /usr/libexec/atuin/atuin-init.bash
 export LIBVIRT_DEFAULT_URI=qemu:///system
+. "$HOME/.cargo/env"
