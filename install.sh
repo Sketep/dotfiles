@@ -3,6 +3,9 @@ DOTFILES=$(dirname "$(realpath "$0")")
 ln -sf "$DOTFILES/home/.bashrc" ~/.bashrc
 ln -sf "$DOTFILES/home/.bash_profile" ~/.bash_profile
 ln -sf "$DOTFILES/home/.gitconfig" ~/.gitconfig
+# Identity for ~/Dev/Sysadmin repos (included by .gitconfig). Kept out of the repo;
+# create a stub to fill in if it does not exist yet. Never overwrites.
+[ -f ~/.gitconfig-sysadmin ] || printf "[user]\n  # name = \n  # email = \n" > ~/.gitconfig-sysadmin
 mkdir -p ~/.config/Code/User
 ln -sf "$DOTFILES/config/Code/User/settings.json" ~/.config/Code/User/
 # nvim: whole-directory symlink (LazyVim). -n so re-running doesn't nest the link.
