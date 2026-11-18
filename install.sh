@@ -22,6 +22,14 @@ ln -sf "$DOTFILES/config/tmux/tmux.conf" ~/.config/tmux/tmux.conf
 [ -d ~/.config/tmux/plugins/vim-tmux-navigator ] || git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.config/tmux/plugins/vim-tmux-navigator
 [ -d ~/.config/tmux/plugins/tmux-resurrect ] || git clone https://github.com/tmux-plugins/tmux-resurrect.git ~/.config/tmux/plugins/tmux-resurrect
 [ -d ~/.config/tmux/plugins/tmux-continuum ] || git clone https://github.com/tmux-plugins/tmux-continuum.git ~/.config/tmux/plugins/tmux-continuum
+# Ptyxis auto-starts tmux. Lives in dconf, not a file; profile UUID differs per machine.
+uuid=$(gsettings get org.gnome.Ptyxis default-profile-uuid 2>/dev/null | tr -d "'")
+if [ -n "$uuid" ]; then
+  dconf write "/org/gnome/Ptyxis/Profiles/$uuid/custom-command" "'tmux new-session -A -s main'"
+  dconf write "/org/gnome/Ptyxis/Profiles/$uuid/use-custom-command" true
+else
+  echo "Ptyxis profile not found (open Ptyxis once, then re-run) - skipped tmux auto-start"
+fi
 # press: markdown → PDF (needs pandoc, typst via `cargo install --locked typst-cli`,
 # and fonts: ibm-plex-sans-fonts ibm-plex-serif-fonts ibm-plex-mono-fonts adobe-source-serif-pro-fonts)
 mkdir -p ~/.local/bin ~/.local/share ~/.claude/skills
